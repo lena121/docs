@@ -1,5 +1,5 @@
 
-### The core parts of Express
+## The core parts of Express
 
 Express has just four major features: middleware, routing, subapplications, and conveniences.
 
@@ -47,16 +47,23 @@ it’s extraordinarily helpful.
 
 
 
-## Middleware—In contrast to vanilla Node.js, where your requests flow
+### Middleware
+Middleware — In contrast to vanilla Node.js, where your requests flow
 through only one function, Express has a middleware stack, which is effectively
 an array of functions.
-## Routing—Routing is a lot like middleware, but the functions are called
+
+### Routing
+Routing — Routing is a lot like middleware, but the functions are called
 only when you visit a specific URL with a specific HTTP method. You could
 run a request handler only when the browser visits yourwebsite.com/
 about, for example.
-## Extensions to request and response objects—Express extends the request and response
+
+### Extensions to request and response objects
+Express extends the request and response
 objects with extra methods and properties for developer convenience.
-## Views—Views allow you to dynamically render HTML. This both allows you to
+
+### Views
+Views — Views allow you to dynamically render HTML. This both allows you to
 change the HTML on the fly and to write the HTML in other languages.
 
 
