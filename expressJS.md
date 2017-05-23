@@ -92,3 +92,18 @@ Eventually, one of these functions in the stack must call res.end, which will en
 request. (In Express, you can also call some other methods like res.send or res.send-
 File, but these call res.end internally.) You can call res.end in any of the functions
 in the middleware stack, but you must only do it once or you’ll get an error.
+
+
+### Packeges & Tools:
+
+npm install nodemon --global - restart automatically server if it will see any changes in any files,
+then in terminal should write such command: nodemon app.js instead of node start or node app.js.
+
+##### built-in Node modules:
+
+require("fs") - The Node.js file system module allow you to work with the file system on your computer.                                https://www.tutorialspoint.com/nodejs/nodejs_file_system.htm
+require("path") - Node.js path module is used for handling and transforming file paths. 
+https://www.w3schools.com/nodejs/ref_path.asp
+
+
+
