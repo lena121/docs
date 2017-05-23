@@ -43,3 +43,47 @@ you to further compartmentalize your app into smaller pieces.
 This feature doesn’t really shine until your applications get large, but when they do,
 it’s extraordinarily helpful.
 
+
+
+
+## Middleware—In contrast to vanilla Node.js, where your requests flow
+through only one function, Express has a middleware stack, which is effectively
+an array of functions.
+## Routing—Routing is a lot like middleware, but the functions are called
+only when you visit a specific URL with a specific HTTP method. You could
+run a request handler only when the browser visits yourwebsite.com/
+about, for example.
+## Extensions to request and response objects—Express extends the request and response
+objects with extra methods and properties for developer convenience.
+## Views—Views allow you to dynamically render HTML. This both allows you to
+change the HTML on the fly and to write the HTML in other languages.
+
+
+### Middleware and the middleware stack
+
+web servers listen for requests, parse those requests, and send
+responses. The Node runtime will get these requests first and turn them from raw
+bytes into two JavaScript objects that you can handle: one object for the request (req )
+and one object for the response (res).
+
+These two objects will be sent to a JavaScript function that you’ll write. You’ll parse req
+to see what the user wants and manipulate res to prepare your response.
+
+In Node, these two objects are passed through just one function. But in Express,
+these objects are passed through an array of functions, called the middleware stack.
+Express will start at the first function in the stack and continue in order down the
+stack.
+
+Every function in this stack takes three arguments. The first two are req and res
+from before. They’re given to you by Node, although Express decorates them with a
+few convenience features.
+The third argument to each of these functions is itself a function, conventionally
+called next. When next is called, Express will go on to the next function in the stack.
+
+Eventually, one of these functions in the stack must call res.end, which will end the
+request. (In Express, you can also call some other methods like res.send or res.send-
+File, but these call res.end internally.) You can call res.end in any of the functions
+in the middleware stack, but you must only do it once or you’ll get an error.
+
+
+
