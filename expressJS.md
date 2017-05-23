@@ -47,27 +47,27 @@ it’s extraordinarily helpful.
 
 
 
-### Middleware
+## Middleware
 Middleware — In contrast to vanilla Node.js, where your requests flow
 through only one function, Express has a middleware stack, which is effectively
 an array of functions.
 
-### Routing
+## Routing
 Routing — Routing is a lot like middleware, but the functions are called
 only when you visit a specific URL with a specific HTTP method. You could
 run a request handler only when the browser visits yourwebsite.com/
 about, for example.
 
-### Extensions to request and response objects
+## Extensions to request and response objects
 Express extends the request and response
 objects with extra methods and properties for developer convenience.
 
-### Views
+## Views
 Views — Views allow you to dynamically render HTML. This both allows you to
 change the HTML on the fly and to write the HTML in other languages.
 
 
-### Middleware and the middleware stack
+## Middleware and the middleware stack
 
 web servers listen for requests, parse those requests, and send
 responses. The Node runtime will get these requests first and turn them from raw
