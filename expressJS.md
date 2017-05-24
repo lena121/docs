@@ -125,3 +125,18 @@ These middleware functions take four arguments instead of two or three. The firs
 While not enforced, error-handling middleware is conventionally placed at the end of
 your middleware stack, after all the normal middleware has been added. This is because
 you want to catch any errors that come cascading down from earlier in the stack.
+
+## Routing
+Routing is one of Express’s big features, allowing you to map different requests to different request handlers.
+(http://expressjs.com/ru/guide/routing.html)
+
+### Grabbing parameters to routes
+
+* The simplest way to grab a parameter is by putting it in your route with a colon in front of it.
+```javascript
+app.get("/users/:userid", function(req, res) {
+var userId = parseInt(req.params.userid, 10);
+// …
+});
+```
+
