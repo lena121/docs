@@ -153,3 +153,5 @@ var endId = parseInt(req.params[1], 10);
 ```
 * __Grabbing query arguments__. Another common way to dynamically pass information in URLs is to use query strings. You’ve probably seen query strings every time you’ve done a search on the internet. For example, if you searched for “javascript-themed burrito” on Google, you’d see a URL like this: https://www.google.com/search?q=javascript-themed%20burrito. There’s a common security bug with query parameters, unfortunately. If you visit ?arg=something, then req.query.arg will be a string. But if you go to ?arg=something&arg=somethingelse, then req.query.arg will be an array. We’ll discuss coping with these types of issues in detail in chapter 8. In general, you’ll want to make sure that you don’t blindly assume something is a string or an array.
 
+### Using routers to split up your app
+
