@@ -98,7 +98,7 @@ in the middleware stack, but you must only do it once or you’ll get an error.
 
 * npm install nodemon --global - restart automatically server if it will see any changes in any files, then in terminal should write such command: nodemon app.js instead of node start or node app.js.
 
-### built-in Node modules:
+### Node modules:
 
 * __require("fs")__ - The Node.js file system module allow you to work with the file system on your computer.                                (https://www.tutorialspoint.com/nodejs/nodejs_file_system.htm)
 
