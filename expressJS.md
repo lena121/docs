@@ -110,4 +110,18 @@ in the middleware stack, but you must only do it once or you’ll get an error.
 
 * __express.static__ - (http://evanhahn.com/express-dot-static-deep-dive/). It does several complicated tricks to achieve better security and performance, such as adding a caching mechanism. express.static is a function that returns a middleware function. It takes one argument: the path to the folder you’ll be using for static files. If the file exists at the path, it will send it. If not, it will call next and continue on to the next middleware in the stack. (http://expressjs.com/ru/starter/static-files.html)
 
+* __body-parser__ - (https://github.com/expressjs/body-parser). Parse incoming request bodies in a middleware before your handlers, available under the req.body property.
 
+* __helmet__ - helps to secure your applications. 
+
+### Error-handling middleware
+
+There are two types of middleware. You’ve been dealing with the first type so far — regular middleware functions that take three arguments (sometimes two when next is discarded). 
+
+There’s a second kind that’s much less-used: error-handling middleware. When your app is in error mode, all regular middleware is ignored and Express will execute only error-handling middleware functions. To enter error mode, simply call next with an argument. It’s convention to call it with an error object, as in next(new Error ("Something bad happened!")).
+
+These middleware functions take four arguments instead of two or three. The first one is the error (the argument passed into next), and the remainder are the three from before: req, res, and next. You can do anything you want in this middleware. When you’re done, it’s just like other middleware: you can call res.end or next. Calling next with no arguments will exit error mode and move onto the next normal middleware; calling it with an argument will continue onto the next error-handling middleware if one exists.
+
+While not enforced, error-handling middleware is conventionally placed at the end of
+your middleware stack, after all the normal middleware has been added. This is because
+you want to catch any errors that come cascading down from earlier in the stack.
