@@ -132,11 +132,24 @@ Routing is one of Express’s big features, allowing you to map different reques
 
 ### Grabbing parameters to routes
 
-* The simplest way to grab a parameter is by putting it in your route with a colon in front of it.
+* __Get params via string__ - the simplest way to grab a parameter is by putting it in your route with a colon in front of it.
 ```javascript
 app.get("/users/:userid", function(req, res) {
 var userId = parseInt(req.params.userid, 10);
 // …
 });
 ```
+
+* __Using regular expressions to match routes__. Express allows you to specify your routes as strings and to specify them as regular expressions. This gives you more control over the routes you specify. You can also use regular expressions to match parameters. 
+You might want, for example, to define a
+route that looks for ranges; that is, if you visit /users/100-500, you can see a list of
+users from IDs 100 to 500.
+```javascript
+app.get(/^\/users\/(\d+)-(\d+)$/, function(req, res) {
+var startId = parseInt(req.params[0], 10);
+var endId = parseInt(req.params[1], 10);
+// …
+});
+```
+* __Grabbing query arguments__. Another common way to dynamically pass information in URLs is to use query strings. You’ve probably seen query strings every time you’ve done a search on the internet. For example, if you searched for “javascript-themed burrito” on Google, you’d see a URL like this: https://www.google.com/search?q=javascript-themed%20burrito. There’s a common security bug with query parameters, unfortunately. If you visit ?arg=something, then req.query.arg will be a string. But if you go to ?arg=something&arg=somethingelse, then req.query.arg will be an array. We’ll discuss coping with these types of issues in detail in chapter 8. In general, you’ll want to make sure that you don’t blindly assume something is a string or an array.
 
