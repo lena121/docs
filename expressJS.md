@@ -98,13 +98,13 @@ in the middleware stack, but you must only do it once or you’ll get an error.
 
 * npm install nodemon --global - restart automatically server if it will see any changes in any files, then in terminal should write such command: nodemon app.js instead of node start or node app.js.
 
-#### built-in Node modules:
+### built-in Node modules:
 
 * __require("fs")__ - The Node.js file system module allow you to work with the file system on your computer.                                (https://www.tutorialspoint.com/nodejs/nodejs_file_system.htm)
 
 * __require("path")__ - Node.js path module is used for handling and transforming file paths. (https://www.w3schools.com/nodejs/ref_path.asp)
 
-#### Express.js modules:
+### Express.js modules:
 
 * __morgan__ - it is for automated logging of requests, responses and related data. When added as a middleware to an express/connect app, by default it should log statements to stdout showing details of: remote ip, request method, http version, response status, user agent etc.morgan is a function that returns a middleware function. When you call it, it will return a function like the one you wrote previously; it’ll take three arguments and call console.log. Most third-party middleware works this way — you call a function that returns the middleware, which you then use. You could have written the previous one like the following.
 
