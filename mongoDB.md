@@ -14,8 +14,13 @@
 ### read documents from collection
 * db._name_of_collection_.find() 
 
+### update document in collection
+* db._name_of_collection_.update({set_old_object}, {set_new_object});
+* db_name_of_collection_.update({field_object}, {$set: {new_filed_object}});
 
+### remove field from document
+* db._name_of_collection_.update({set_field_object}, {$unset: {set_field_object}});
 
-
-
+### remove document from collecton 
+* db._name_of_collection.remove({set_field_object});
 
